@@ -16,21 +16,21 @@ class MyApp extends StatefulWidget {
 
 _makePostRequest() async {
   // set up POST request arguments
-  String url = 'https://jsonplaceholder.typicode.com/posts';
+  String url = 'http://10.0.0.1/api/student';
   Map<String, String> headers = {"Content-type": "application/json"};
-  String json = '{"title": "Hello", "body": "body text", "userId": 1}';
+  String json = '{"qrcode": qrcode}';
   // make POST request
   Response response = await post(url, headers: headers, body: json);
   // check the status code for the result
   int statusCode = response.statusCode;
   // this API passes back the id of the new item added to the body
   String body = response.body;
-  // {
+  {
   //   "title": "Hello",
   //   "body": "body text",
   //   "userId": 1,
   //   "id": 101
-  // }
+   }
 }
 
 
@@ -72,20 +72,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 Text(_content != null ? _content : 'Undefined'),
-                SizedBox(
-                  height: 24.0,
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  onPressed: _scanQR,
-                  child: Text(
-                    'Scan QR',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                SizedBox(
-                  height: 24.0,
-                ),
 
               ],
             ),
